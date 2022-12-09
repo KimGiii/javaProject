@@ -17,12 +17,12 @@ public class Database {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch(java.lang.ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: "); 
 			System.err.println(e.getMessage());
 			JOptionPane.showMessageDialog(null, "Failed");
 		}
-		String insertString = "UPDATE `RythmeGame`.`cdkey` SET `userid` = '"+userid+"'WHERE (`cdkey` = '"+cdkey+"');";
+		String insertString = "UPDATE `RythmeGame`.`cdkey` SET `userid` = '" + userid + "'WHERE (`cdkey` = '" + cdkey + "');";
 		
 		try {
 			con = DriverManager.getConnection(url, user, passwd);
@@ -47,21 +47,19 @@ public class Database {
 		url  = "jdbc:mysql://127.0.0.1:3306/RythmeGame";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch(java.lang.ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: "); 
 			System.err.println(e.getMessage());
 			return "Failed";
 		}
-		String insertString = "INSERT INTO `RythmeGame`.`user` (`userid`, `nickname`, `password`) VALUES "
-				+ "('"+userid+"', '"+nickname+"', '"+password+"');";
+		String insertString = "INSERT INTO `RythmeGame`.`user` (`userid`, `nickname`, `password`) VALUES " + "('" + userid + "', '" + nickname + "', '" + password + "');";
 		try {
 			con = DriverManager.getConnection(url, user, passwd);
 			stmt = con.createStatement();
 			stmt.executeUpdate(insertString); 	
 			System.out.println("작업을 성공하였습니다.");
 			JOptionPane.showMessageDialog(null, "Success");
-			return "Success";
-			
+			return "Success";	
 		} catch(SQLException ex) {
 			System.err.println("SQLException: " + ex.getMessage());
 			JOptionPane.showMessageDialog(null, "Failed");
@@ -79,13 +77,12 @@ public class Database {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch(java.lang.ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: "); 
 			System.err.println(e.getMessage());
 			return;
 		}
-		String insertString = "INSERT INTO `RythmeGame`.`record` (`userid`, `score`, `grade`, `musicname`, `recordid`) VALUES "
-				+ "('"+userid+"', '"+score+"', '"+grade+"', '"+title+"', '"+recordid+"');";
+		String insertString = "INSERT INTO `RythmeGame`.`record` (`userid`, `score`, `grade`, `musicname`, `recordid`) VALUES " + "('" + userid+ "', '" + score + "', '" + grade + "', '" + title + "', '" + recordid + "');";
 		
 		try {
 			con = DriverManager.getConnection(url, user, passwd);
@@ -107,13 +104,12 @@ public class Database {
 	
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-	} catch(java.lang.ClassNotFoundException e) {
+	} catch(ClassNotFoundException e) {
 		System.err.print("ClassNotFoundException: "); 
 		System.err.println(e.getMessage());
 		return;
 	}
-	String insertString = "INSERT INTO `RythmeGame`.`play` (`userid`, `musicid`) VALUES "
-			+ "('"+userid+"', '"+musicid+"');";
+	String insertString = "INSERT INTO `RythmeGame`.`play` (`userid`, `musicid`) VALUES " + "('" + userid + "', '" + musicid + "');";
 	
 	try {
 		con = DriverManager.getConnection(url, user, passwd);
@@ -135,7 +131,7 @@ public class Database {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch(java.lang.ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: "); 
 			System.err.println(e.getMessage());
 			return;
@@ -163,7 +159,7 @@ public class Database {
 		url  = "jdbc:mysql://127.0.0.1:3306/RythmeGame";
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");    
-		} catch(java.lang.ClassNotFoundException e) {
+		} catch(ClassNotFoundException e) {
 			System.err.print("ClassNotFoundException: "); 
 			System.err.println("드라이버 로딩 오류: " + e.getMessage());
 			return "fail";
