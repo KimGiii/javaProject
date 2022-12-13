@@ -1,4 +1,4 @@
-package rhythm_game;
+package RythmeGame;
 
 import java.awt.Color;
 import java.awt.Font;
